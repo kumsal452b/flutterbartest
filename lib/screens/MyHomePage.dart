@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterbartest/widget/mybottombar.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -10,12 +11,46 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  PageController pageController;
+  int selectTab=0;
+  @override
+  void initState() {
+    pageController=new PageController();
+    super.initState();
+  }
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
+      body: PageView(
+        onPageChanged: (num){
+          setState(() {
+            selectTab=num;
+          });
+        },
+        children: [
+          Container(
+            child: Center(child: Text("Home page")),
+          ),
+          Container(
+            child: Center(child: Text("Saved page")),
+          ),
+          Container(
+            child: Center(child: Text("Logout page")),
+          ),
+          Container(
+            child: Center(child: Text("Search page")),
+          ),
+        ],
+      ),
+      bottomNavigationBar: myAppBottombr(),
     ); // This trailing comma makes auto-formatting nicer for build methods.
-}
+  }
 }
