@@ -11,7 +11,6 @@ class myAppBottombr extends StatefulWidget {
 }
 
 class _State extends State<myAppBottombr> {
-  int selectTab=2;
   @override
   void initState() {
 
@@ -19,6 +18,7 @@ class _State extends State<myAppBottombr> {
   }
   @override
   Widget build(BuildContext context) {
+  int selectTab=widget.selectedTab??0;
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: 4,
@@ -43,36 +43,28 @@ class _State extends State<myAppBottombr> {
             path: 'assets/images/tab_home.png',
             isSelect: selectTab==0?true:false,
             clickItem: (){
-              setState(() {
-                selectTab=0;
-              });
+             widget.tabClic(0);
             },
           ),
           BottomBar(
             path: 'assets/images/tab_saved.png',
             isSelect: selectTab==1?true:false,
             clickItem: (){
-              setState(() {
-                selectTab=1;
-              });
+              widget.tabClic(1);
             },
           ),
           BottomBar(
             path: 'assets/images/tab_logout.png',
             isSelect: selectTab==2?true:false,
             clickItem: (){
-              setState(() {
-                selectTab=2;
-              });
+              widget.tabClic(2);
             },
           ),
           BottomBar(
             path: 'assets/images/tab_search.png',
             isSelect: selectTab==3?true:false,
             clickItem: (){
-              setState(() {
-                selectTab=3;
-              });
+              widget.tabClic(3);
             },
           ),
         ],

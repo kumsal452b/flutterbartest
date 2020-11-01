@@ -35,6 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
             selectTab=num;
           });
         },
+        controller: pageController,
         children: [
           Container(
             child: Center(child: Text("Home page")),
@@ -50,7 +51,12 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      bottomNavigationBar: myAppBottombr(),
+      bottomNavigationBar: myAppBottombr(
+        selectedTab: selectTab,
+        tabClic: (num){
+          pageController.animateToPage(num, duration: Duration(milliseconds: 300), curve: Curves.ease);
+        },
+      ),
     ); // This trailing comma makes auto-formatting nicer for build methods.
   }
 }
