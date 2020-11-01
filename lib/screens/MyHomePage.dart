@@ -54,6 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: myAppBottombr(
         selectedTab: selectTab,
         tabClic: (num){
+
           pageController.animateToPage(num, duration: Duration(milliseconds: 300), curve: Curves.ease);
         },
       ),

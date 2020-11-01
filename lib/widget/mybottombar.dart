@@ -11,14 +11,10 @@ class myAppBottombr extends StatefulWidget {
 }
 
 class _State extends State<myAppBottombr> {
-  @override
-  void initState() {
-
-    super.initState();
-  }
+  int selectTab=0;
   @override
   Widget build(BuildContext context) {
-  int selectTab=widget.selectedTab??0;
+    selectTab=widget.selectedTab??0;
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: 4,
